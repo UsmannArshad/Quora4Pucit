@@ -1,0 +1,108 @@
+﻿@section links{
+    <link rel="stylesheet" href="@Url.Content("~/css/editprofile.css")">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+}
+<div class="container">
+        <div class="container-header">
+            <h1>Edit Your Profile</h1>
+            <hr>
+        </div>
+        <div class="container-body">
+            <form action="">
+                <div class="personalinfo">
+                    <fieldset class="border border-dark p-3">
+                        <legend class="float-none w-auto">Personal Info</legend>
+                        <div class="mb-3">
+                            <img src="../images/login.png" alt="current image">
+                            <br>
+                            <input type="file" class="form-control-file mt-3" accept="image/*" id="exampleFormControlFile1">
+                        </div>
+                        <div class="mb-3 simpleinfo">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" name="" id="name">
+                        </div>
+                        <div class="mb-3 simpleinfo">
+                            <label for="adress" class="form-label">Adress</label>
+                            <input type="text" class="form-control" name="" id="adress">
+                        </div>
+                        <div class="mb-3 simpleinfo">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" class="form-control" name="" id="age">
+                        </div>
+                        <div class="mb-3">
+                            <label for="summernote" class="form-label">About me</label>
+                            <textarea name="" class="form-control" id="summernote"></textarea>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="account-info mt-3">
+                    <fieldset class="border border-dark p-3">
+                        <legend class="float-none w-auto">Account Info</legend>
+                        <div class="mb-3 simpleinfo">
+                            <label for="email" class="form-label">Enter Your Current Email</label>
+                            <input type="email" class="form-control" name="email" id="email">
+                        </div>
+                        <div class="mb-3 simpleinfo">
+                            <label for="prevpwd" class="form-label">Enter Your Current Password</label>
+                            <input type="password" class="form-control" name="" id="prevpwd">
+                        </div>
+                        <div class="mb-3 simpleinfo">
+                            <label for="email" class="form-label">Enter new Email</label>
+                            <input type="email" class="form-control" name="email" id="email">
+                        </div>
+                        <div class="mb-3 simpleinfo">
+                            <label for="newpwd" class="form-label">Enter New Password</label>
+                            <input type="password" class="form-control" name="" id="newpwd">
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class=" links-info mt-3 mb-3">
+                    <fieldset class="border border-dark p-3">
+                        <legend class=" float-none w-auto">Links</legend>
+                        <div class="links">
+                            <div class="input-group simpleinfo1">
+                                <label for="twitter" class="form-label">Twitter</label>
+                                <div class="link-text">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fab fa-twitter"></i></span>
+                                    <input type="text" class="form-control" name="" id="twitter">
+                                </div>
+                            </div>
+                            <div class="input-group simpleinfo1">
+                                <label for="website" class="form-label">Website</label>
+                                <div class="link-text">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-link"></i></span>
+                                    <input type="text" class="form-control" name="" id="website">
+                                </div>
+                            </div>
+                            <div class="input-group simpleinfo1">
+                                <label for="github" class="form-label">Github</label>
+                                <div class="link-text">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fab fa-github"></i></span>
+                                    <input type="text" class="form-control" name="" id="github">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <button class="btn btn-success submit-btn" value="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        $('#summernote').summernote({
+  placeholder: 'Tell us about Yourself',
+  height:'30vh',
+  toolbar: [
+    ['style', ['style']],
+    ['font', ['bold', 'underline', 'clear']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['table', ['table']],
+    ['insert', ['link', 'picture']],
+    ['view', ['fullscreen', 'codeview', 'help']]
+  ]
+});
+</script>

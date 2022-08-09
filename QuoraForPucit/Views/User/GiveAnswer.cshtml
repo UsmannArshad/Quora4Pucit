@@ -1,0 +1,84 @@
+﻿@model QuoraForPucit.Models.Answer;
+@section links{
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <link rel="stylesheet" href="@Url.Content("~/css/GiveAnswer.css?version=2")"/>
+}
+    @{
+    ViewData["Title"] = "Give Answer";
+    var question = (Question)ViewData["Question"];
+    var Answers = (List<Answer>)ViewData["Answers"];
+}
+<div class="container">
+      <div class="question-container">
+        <h1>Question</h1>
+        <div class="title">
+          <h2>@question.Title</h2>
+        </div>
+        <div class="qsinfo">
+          <div class="qs-time"><h5>asked:1h ago</h5></div>
+          <div class="qs-publisher">
+              <img src="~/images/login.png" height="35px" width="35px" alt="user profile pic">
+              <p>Usman Arshad</p>
+            </div>
+          <div class="qs-subject"><h5>Related to:@question.Subject</h5></div>
+        </div>
+        <hr />
+        <div class="desc" id="desc">
+            @question.Description
+        </div>
+      </div>
+      <div class="answer-container">
+        <h1>Your Answer:</h1>
+        <form action="WriteAnswer" method="post">
+        <input type="text" asp-for="QuestionId" value="@question.Id" style="display:none"/>
+        <textarea asp-for="AnswerDescription" id="summernote"></textarea>
+        <div class="resultcontainer" style="text-align:left; width:65%;"></div>
+        <input type="submit" class="btn btn-success mt-3" value="Post Answer"/>
+        </form>
+      </div>
+       <div class="other-answer-container">
+        <h1>Answers</h1>
+        @for(int i=0;i<Answers.Count;i++)
+        {
+            <partial name="~/Views/User/_PartialAns.cshtml" view-data='@new ViewDataDictionary(ViewData) {{"answer",Answers[i]}}'/>
+        }
+    </div>
+    </div>
+    <script>
+      $('#summernote').summernote({
+placeholder: 'Answer goes here',
+height:'30vh',
+toolbar: [
+  ['style', ['style']],
+  ['font', ['bold', 'underline', 'clear']],
+  ['color', ['color']],
+  ['para', ['ul', 'ol', 'paragraph']],
+  ['table', ['table']],
+  ['insert', ['link', 'picture']],
+  ['view', ['codeview', 'help']]
+],
+ callbacks: {
+            onChange: function (contents, $editable) {
+                  $('.resultcontainer').html(contents)
+            }
+ }
+});
+function printdesc() {
+    var desc = document.getElementById("desc");
+    var html = desc.innerText;
+    desc.innerHTML = html;
+}
+printdesc();
+function printanswer() {
+    var desc = document.getElementsByClassName("ans-body")
+    console.log(desc.length)
+    for (let i = 0; i < desc.length;i++)
+    {
+            var html = desc[i].innerText;
+            desc[i].innerHTML = html;
+    }
+}
+printanswer();
+</script>

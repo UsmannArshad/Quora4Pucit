@@ -49,5 +49,52 @@ namespace QuoraForPucit.Controllers
                 return View();
             }
         }
+        [Route("/User/MainPage", Name = "usermainpage")]
+        public ViewResult MainPage()
+        {
+            return View();
+        }
+        [Route("/User/AboutUs", Name = "aboutuss")]
+        public ViewResult AboutUs()
+        {
+            return View();
+        }
+        [Route("/User/ContactUs", Name = "contactuss")]
+        public ViewResult ContactUs()
+        {
+            return View();
+        }
+        [Route("/User/EditProfile", Name = "editprofile")]
+        public ViewResult EditProfile()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ViewResult AskQuestion()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ViewResult AskQuestion(Question q)
+        {
+            if (ModelState.IsValid)
+            {
+                Console.WriteLine("nice");
+                return View();
+            }
+            else
+            {
+                Console.WriteLine("not nice");
+                return View();
+            }
+        }
+        public ViewResult Profile()
+        {
+            return View();
+        }
+        public ViewResult GiveAnswer()
+        {
+            return View();
+        }
     }
 }
