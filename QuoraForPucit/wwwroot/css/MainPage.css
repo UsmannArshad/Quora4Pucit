@@ -1,0 +1,104 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url(../images/redbg.jpg);
+    background-size:cover;
+    background-attachment:fixed;
+}
+
+.question-item {
+    background-color: white;
+    padding: 5px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#question {
+    background-color: white;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 10px;
+    margin-bottom:30px;
+}
+
+    #question h1 {
+        font-family: 'Dancing Script', cursive;
+        font-weight: bolder;
+        color: darkred;
+        text-decoration: underline;
+        text-align: center;
+    }
+
+.question-item p {
+    font-weight: bolder;
+}
+
+.question-info {
+    padding-right: 3px;
+}
+
+    .question-info p {
+        text-align: center;
+    }
+
+.qs-publisher {
+    display: flex;
+    flex-direction: row;
+}
+
+    .qs-publisher p {
+        padding-top: 5px;
+        margin-left: 10px;
+    }
+
+    .qs-publisher img {
+        height: 35px;
+        width: 35px;
+    }
+
+.question {
+    max-width: 60vw;
+}
+
+.votes {
+    display: inline;
+    font-weight: bolder;
+    margin-left: 10px;
+    text-decoration: underline;
+    font-size: larger;
+}
+.like-btn i{
+    font-size:20px
+}
+.dislike-btn i{
+    font-size:20px;
+}
+.answers {
+    display: inline;
+    font-weight: bolder;
+    margin-left: 10px;
+    text-decoration: underline;
+    font-size: larger;
+}
+
+@media(max-width:991px) {
+    .question-info {
+        min-width: 30vw;
+        height: 14vh;
+    }
+    .like-btn i {
+        font-size: 15px
+    }
+
+    .dislike-btn i {
+        font-size: 15px;
+    }
+    .answer-btn{
+        width:100px;
+    }
+}

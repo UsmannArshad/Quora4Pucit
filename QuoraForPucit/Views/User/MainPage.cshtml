@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Main Page";
+}
+@section links{
+    <link rel="stylesheet" href="@Url.Content("~/css/MainPage.css")">
+}
+<div class="container" id="question">
+    <div class="headofquestion">
+        <h1>Top Questions</h1>
+        <hr>
+    </div>
+    <div class="questions">
+        @for (int i = 0; i < 15; i++)
+        {
+        <partial name="~/Views/User/_Partial.cshtml"/>
+        }
+    </div>
+</div>

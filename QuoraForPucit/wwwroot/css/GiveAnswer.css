@@ -1,0 +1,123 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background: url(../images/redbg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container {
+    width: 80vw;
+    margin: auto;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+}
+
+.question-container {
+    border: 1px solid darkred;
+}
+
+    .question-container h1 {
+        font-family: 'Dancing Script',cursive;
+        color: darkred;
+        text-decoration: underline;
+    }
+
+    .question-container h2 {
+        margin-bottom: 50px;
+    }
+
+.qsinfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.desc {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+    .desc img {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+.answer-container {
+    margin-top: 20px;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid darkred;
+}
+
+    .answer-container h1 {
+        font-family: 'Dancing Script', cursive;
+        margin-bottom: 20px;
+        text-align: center;
+        color: darkred;
+        text-decoration: underline;
+    }
+
+.qs-publisher p {
+    font-size: 20px;
+    font-weight: bold;
+}
+.other-answer-container h1 {
+    font-family: 'Dancing Script', cursive;
+    margin-bottom: 20px;
+    text-align: center;
+    color: darkred;
+    text-decoration: underline;
+}
+
+.answer {
+    border-bottom: 1px solid gray;
+}
+
+.like-btn {
+    font-size: 20px;
+    color: darkblue;
+    padding: 10px;
+}
+
+.comment-btn {
+    font-size: 20px;
+    color: green;
+    padding: 10px;
+}
+
+.dislike-btn {
+    font-size: 20px;
+    color: darkred;
+    padding: 10px;
+}
+
+.profile {
+    padding: 5px;
+}
+
+    .profile a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
+
+.answer-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.other-answer-container {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid darkred;
+}

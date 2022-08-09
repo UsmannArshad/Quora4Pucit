@@ -1,0 +1,86 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url(../images/redbg.jpg);
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.qs-container {
+    background-color: white;
+    width: 60vw;
+    margin: auto;
+    height: 80%;
+}
+
+    .qs-container h1 {
+        font-family: 'Dancing Script', cursive;
+        font-weight: bolder;
+        color: darkred;
+        text-decoration: underline;
+        text-align: center;
+    }
+
+.title-div {
+    margin-top: 30px;
+}
+
+#title1 {
+    font-weight: bolder;
+    width: 40vw;
+}
+
+.qs-div {
+    margin-top: 30px;
+    width: 40vw;
+}
+
+label {
+    color: black;
+    font-weight: bolder;
+}
+
+.opt-grp {
+    margin-top: 30px;
+}
+
+#subject {
+    width: 40vw;
+    height: 5vh;
+}
+
+.submit-btn {
+    width: 10vw;
+    margin-top: 30px;
+}
+
+@media(max-width:991px) {
+    .qs-container {
+        width: 100vw;
+        height: 100%;
+    }
+
+    #title1 {
+        width: 100%;
+    }
+
+    .qs-div {
+        width: 80%
+    }
+
+    #title1 {
+        width: 80vw;
+    }
+
+    #subject {
+        width: 80vw;
+    }
+
+    .submit-btn {
+        width: 20vw;
+    }
+}
