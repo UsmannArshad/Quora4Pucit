@@ -19,8 +19,10 @@ namespace QuoraForPucit
 
         public virtual DbSet<AComment> AComments { get; set; } = null!;
         public virtual DbSet<Answer> Answers { get; set; } = null!;
+        public virtual DbSet<AnswerUpvoter> AnswerUpvoters { get; set; } = null!;
         public virtual DbSet<QComment> QComments { get; set; } = null!;
         public virtual DbSet<Question> Questions { get; set; } = null!;
+        public virtual DbSet<QuestionsUpvoter> QuestionsUpvoters { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -57,6 +59,10 @@ namespace QuoraForPucit
             {
                 entity.Property(e => e.AnswerDescription).IsUnicode(false);
 
+                entity.Property(e => e.AnswererName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Time).HasColumnType("datetime");
 
                 entity.Property(e => e.Upvote).HasDefaultValueSql("((0))");
@@ -74,6 +80,23 @@ namespace QuoraForPucit
                     .HasConstraintName("FK_Answers_Questions");
             });
 
+            modelBuilder.Entity<AnswerUpvoter>(entity =>
+            {
+                entity.ToTable("AnswerUpvoter");
+
+                entity.HasOne(d => d.Answer)
+                    .WithMany(p => p.AnswerUpvoters)
+                    .HasForeignKey(d => d.AnswerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_AnswerUpvoters_Answer");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.AnswerUpvoters)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_AnswerUpvoters_User");
+            });
+
             modelBuilder.Entity<QComment>(entity =>
             {
                 entity.ToTable("Q_Comments");
@@ -81,6 +104,11 @@ namespace QuoraForPucit
                 entity.Property(e => e.Comment).IsUnicode(false);
 
                 entity.Property(e => e.QCommenterId).HasColumnName("Q_CommenterId");
+
+                entity.Property(e => e.QcommenterName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("QCommenterName");
 
                 entity.HasOne(d => d.QCommenter)
                     .WithMany(p => p.QComments)
@@ -99,6 +127,10 @@ namespace QuoraForPucit
             {
                 entity.Property(e => e.Description).IsUnicode(false);
 
+                entity.Property(e => e.QuestionaireName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Subject)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -106,7 +138,6 @@ namespace QuoraForPucit
                 entity.Property(e => e.Time).HasColumnType("datetime");
 
                 entity.Property(e => e.Title)
-                    .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Upvote).HasDefaultValueSql("((0))");
@@ -118,10 +149,25 @@ namespace QuoraForPucit
                     .HasConstraintName("FK_Questions_ToTable");
             });
 
+            modelBuilder.Entity<QuestionsUpvoter>(entity =>
+            {
+                entity.HasOne(d => d.Question)
+                    .WithMany(p => p.QuestionsUpvoters)
+                    .HasForeignKey(d => d.QuestionId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_QuestionsUpvoters_Question");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.QuestionsUpvoters)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_QuestionsUpvoters_User");
+            });
+
             modelBuilder.Entity<User>(entity =>
             {
                 entity.Property(e => e.Github).IsUnicode(false);
-
+                entity.Property(e => e.ProfilePicture).IsUnicode(false);
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -131,6 +177,7 @@ namespace QuoraForPucit
                     .IsUnicode(false);
 
                 entity.Property(e => e.Twitter).IsUnicode(false);
+                entity.Property(e => e.About).IsUnicode(false);
 
                 entity.Property(e => e.Username)
                     .HasMaxLength(50)

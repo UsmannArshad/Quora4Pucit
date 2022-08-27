@@ -1,8 +1,15 @@
+using QuoraForPucit.Models.Interfaces;
+using QuoraForPucit.Models.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddSingleton<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<IQuestionUpvoterRepository, QuestionUpvoterRepository>();
+builder.Services.AddSingleton<IQuestionRepository, QuestionRepository>();
+builder.Services.AddSingleton<IQuestionCommentsRepository, Q_Cmnts_Repo>();
+builder.Services.AddSingleton<IAnswerRepository, AnswerRepostory>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

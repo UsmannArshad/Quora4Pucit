@@ -1,8 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Main Page";
+    var questionlist = (List<Question>)ViewData["ListofQuestion"];
+    List<int> QuestionStatus = (List<int>)ViewData["ListOfQuestionStatus"];
+
+    var UserId = ViewData["CurrentUserId"];
+    var Name = ViewData["Name"];
 }
 @section links{
     <link rel="stylesheet" href="@Url.Content("~/css/MainPage.css")">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 }
 <div class="container" id="question">
     <div class="headofquestion">
@@ -10,9 +16,50 @@
         <hr>
     </div>
     <div class="questions">
-        @for (int i = 0; i < 15; i++)
+        @for (int i = 0; i < questionlist.Count; i++)
         {
-        <partial name="~/Views/User/_Partial.cshtml"/>
+            <form asp-action="CheckQuestionUpvoteStatus" style="display:inline">
+                <input name="QuestionId" value="@questionlist[i].Id" style="display:none"/>
+                <input name="UserId" value="@UserId" style="display:none"/>
+            </form>
+        <partial name="~/Views/User/_Partial.cshtml"  view-data='@new ViewDataDictionary(ViewData) {{"question",questionlist[i]},{"index",i},{"questionstatus",QuestionStatus[i]}}'/>
         }
     </div>
+    <a asp-controller="User" asp-action="LoadMore">Load More</a>
 </div>
+<script>
+var collection = document.getElementsByClassName("like-btn");
+var collection1 = document.getElementsByClassName("dislike-btn");
+for (let i = 0; i < collection.length; i++) {
+    collection[i].onclick = function () {
+        if (collection[i].style.backgroundColor !=(0, 0, 255))
+    {
+            collection[i].style.backgroundColor = "rgb(0,0,255)";
+            collection[i].style.color="rgb(255,255,255)"
+            collection1[i].disabled = true;
+    }
+    else
+    {
+            collection[i].style.backgroundColor = "rgb(0,0,0)";
+            collection[i].style.color = "rgb(0,0,255)"
+            collection1[i].disabled = false;
+    }  
+  }
+}
+for (let i = 0; i < collection1.length; i++) {
+  collection1[i].onclick=function(){
+      if (collection1[i].style.backgroundColor !="rgb(139, 0, 0)")
+    {
+          collection1[i].style.backgroundColor = "rgb(139,0,0)";
+          collection1[i].style.color = "rgb(255,255,255)"
+          collection[i].disabled = true;
+    }
+    else
+    {
+          collection1[i].style.backgroundColor = "rgb(255,255,255)";
+          collection1[i].style.color = "rgb(139,0,0)"
+          collection[i].disabled = false;
+    }  
+  }
+}
+</script>

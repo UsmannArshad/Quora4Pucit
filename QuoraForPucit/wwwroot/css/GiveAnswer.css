@@ -17,7 +17,11 @@ body {
     background-color: white;
     padding: 20px;
 }
-
+#desc{
+    text-align:left;
+    font-size:20px;
+    font-weight:bold;
+}
 .question-container {
     border: 1px solid darkred;
 }
@@ -56,14 +60,17 @@ body {
     padding: 10px;
     border: 1px solid darkred;
 }
+.ans-body{
+    text-align:left;
+}
 
-    .answer-container h1 {
-        font-family: 'Dancing Script', cursive;
-        margin-bottom: 20px;
-        text-align: center;
-        color: darkred;
-        text-decoration: underline;
-    }
+.answer-container h1 {
+    font-family: 'Dancing Script', cursive;
+    margin-bottom: 20px;
+    text-align: center;
+    color: darkred;
+    text-decoration: underline;
+}
 
 .qs-publisher p {
     font-size: 20px;
@@ -120,4 +127,54 @@ body {
     margin-top: 20px;
     padding: 10px;
     border: 1px solid darkred;
+}
+.comments {
+    padding: 5px;
+}
+
+    .comments h2 {
+        font-family: 'Dancing Script', cursive;
+        margin-bottom: 20px;
+        text-align: center;
+        color: darkred;
+        text-decoration: underline;
+    }
+
+.addComment {
+    width: 90%;
+    margin: auto;
+}
+
+    .addComment p {
+        text-align: left;
+    }
+
+    .addComment textarea {
+        width: 95%;
+        box-sizing: border-box;
+    }
+
+#commentform {
+    display: none;
+}
+
+#Anscommentform {
+    display: none;
+}
+
+.comment {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    font-size: 15px;
+}
+
+    .comment a {
+        text-decoration: none;
+        color: black;
+    }
+
+#answer-comments {
+    display: none;
 }
