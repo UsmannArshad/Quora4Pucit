@@ -26,7 +26,7 @@ namespace QuoraForPucit.Controllers
         static int UserId = 0;
         static string Name = "";
         static string UserName = "";
-        [HttpGet]
+/*        [HttpGet]
         public ViewResult SignIn()
         {
             return View();
@@ -99,9 +99,9 @@ namespace QuoraForPucit.Controllers
             {
                 return View();
             }
-        }
-        [Route("/User/MainPage", Name = "usermainpage")]
-        public ViewResult MainPage()
+        }*/
+  /*      [Route("/User/MainPage", Name = "usermainpage")]*/
+/*        public ViewResult MainPage()
         {
             List<Question> listofqs = _questionRepository.GetAllQuestions(false);
             List<int> listofupvotestatus = new List<int>();
@@ -130,7 +130,7 @@ namespace QuoraForPucit.Controllers
             ViewData["CurrentUserId"] = UserId;
             ViewData["Name"] = Name;
             return View("MainPage");
-        }
+        }*/
         [Route("/User/AboutUs", Name = "aboutuss")]
         public ViewResult AboutUs()
         {
@@ -171,7 +171,7 @@ namespace QuoraForPucit.Controllers
             ViewData["User"] = updateduser;
             return View();
         }
-        [HttpGet]
+ /*       [HttpGet]
         public ViewResult AskQuestion()
         {
             ViewData["CurrentUserId"] = UserId;
@@ -185,7 +185,7 @@ namespace QuoraForPucit.Controllers
             ViewData["CurrentUserId"] = UserId;
             ViewData["Name"] = Name;
             return View();
-        }
+        }*/
         public ViewResult Profile()
         {
             User u = _userRepository.GetUserByUsername(UserName);
@@ -220,7 +220,7 @@ namespace QuoraForPucit.Controllers
             ViewData["Name"] = Name;
             return View("GiveAnswer");
         }
-        [HttpPost]
+       /* [HttpPost]
         public ViewResult AddCommentToQuestion(CombinedModel model)
         {
             QComment qc = model.qcomment;
@@ -256,6 +256,6 @@ namespace QuoraForPucit.Controllers
             ViewData["CurrentUserId"] = UserId;
             ViewData["Name"] = Name;
             return View("MainPage");
-        }
+        }*/
     }
 }

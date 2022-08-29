@@ -1,0 +1,64 @@
+﻿@model QuoraForPucit.Models.Question
+@{
+    var question = (Question)ViewData["question"];
+    var index = (int)ViewData["index"];
+    var questionstatus = (int)ViewData["questionstatus"];
+} 
+<div class="question-item shadow mt-4 mb-1" >
+          <div class="question-content">
+            <p class="question">
+              @question.Title
+            </p>
+            <form method="post" asp-action="VoteQuestion" style="display:inline">
+              <input name="questionid" value="@question.Id" style="display:none"/>
+              <input name="votevalue" value="1" style="display:none"/>
+              @if(questionstatus==1)
+            {
+                <button type="submit" class="btn like-btn ml-2 mb-2" id="thumbup_@index" style="background-color: darkblue; color:white"><i class="fa fa-thumbs-up"></i>
+                </button>
+            }
+            else if(questionstatus==2)
+            {
+                <button type="submit" disabled class="btn like-btn ml-2 mb-2" id="thumbup_@index" style="background-color: white; color:darkblue"><i class="fa fa-thumbs-up"></i>
+                </button>
+            }
+            else
+            {
+                <button type="submit" class="btn like-btn ml-2 mb-2" id="thumbup_@index" style="background-color: white; color:darkblue"><i class="fa fa-thumbs-up"></i>
+                </button>
+            }
+            </form>
+            <form method="post" asp-action="VoteQuestion" style="display:inline">
+              <input name="questionid" value="@question.Id" style="display:none"/>
+              <input name="votevalue" value="2" style="display:none"/>
+             @if(questionstatus==1)
+            {
+                <button type="submit" disabled class="btn dislike-btn ml-2 mb-2" id="thumbdown_@index" style="background-color: white; color:darkred"><i class="fa fa-thumbs-down"></i>
+                </button>
+            }
+            else if(questionstatus==2)
+            {
+                <button type="submit" class="btn dislike-btn ml-2 mb-2" id="thumbdown_@index" style="background-color: darkred; color:white"><i class="fa fa-thumbs-down"></i>
+                </button>
+            }
+            else
+            {
+                <button type="submit" class="btn dislike-btn ml-2 mb-2" id="thumbdown_@index" style="background-color: white; color:darkred"><i class="fa fa-thumbs-down"></i>
+                </button>
+            }
+            </form>
+            <form asp-action="GiveAnswer" style="display: inline" method="post">
+            <input type="text" name="Id" value="@question.Id" style="display:none"/>
+            <button class="btn btn-success answer-btn ml-2 mb-2">Answer</button>
+            </form>
+            <p class="answers">3 <i class="fa fa-comments"></i></p>
+            <p class="votes">@question.Upvote <i class="fa fa-sort"></i></p>
+          </div>
+          <div class="question-info">
+            <p>@question.Time</p>
+            <div class="qs-publisher">
+              <img src="~/images/login.png" alt="user profile pic">
+              <p>@question.QuestionaireName</p>
+            </div>
+          </div>
+      </div>

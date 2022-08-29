@@ -1,0 +1,69 @@
+﻿@model QuoraForPucit.Models.Question
+@{
+    ViewData["Title"] = "Ask Question";
+    var Name = ViewData["Name"];
+    var UserId = ViewData["CurrentUserId"];
+}
+@section links{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <link rel="stylesheet" href="@Url.Content("~/css/AskQs.css")"/>
+}
+<div asp-validation-summary="All" role="alert" style="display:none"></div>
+<div class="qs-container mt-5 mb-5 py-5">
+        <h1>Ask a Public Question</h1>
+        <form  method="post" action="/User/AskQuestion" id="question_form" class="d-flex justify-content-space-between align-items-center" style="flex-direction: column;">
+            <div class="title-div">
+                <label asp-for="Title">Question Title:</label>
+                <br>
+                <input type="text" asp-for="Title" id="title1">
+                <br>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="qs-div">
+                <label asp-for="Description">Description:</label>
+                <br>
+                <textarea asp-for="Description" id="summernote"></textarea>
+                <br>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="resultcontainer mt-4 mb-4" style="text-align:left; width:65%;">
+            </div>
+            <div class="opt-grp">
+                <label asp-for="Subject">Choose Subject:</label>
+                <br>
+                <select asp-for="Subject" id="subject">
+                    <option selected="selected" value="Exam">Exam</option>
+                    <option value="Admission">Admission</option>
+                    <option value="Job">Job</option>
+                    <option value="Study">Study</option>
+                    <option value="Information">Information</option>
+                    <option value="Events">Events</option>
+                </select>
+            </div>
+            <input asp-for="QuestionaireId" value="@UserId" style="display:none"/>
+            <input asp-for="QuestionaireName" value="@Name" style="display:none"/>
+            <button class="btn btn-success submit-btn" value="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+              $('#summernote').summernote({
+        placeholder: 'Description goes here....',
+        height:'25vh',
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture']],
+          ['view', ['codeview', 'help']]
+        ],
+        callbacks: {
+            onChange: function (contents, $editable) {
+                  $('.resultcontainer').html(contents)
+            }
+          }
+      });
+    </script>

@@ -15,24 +15,40 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Noob\source\repos\QuoraForPucit\QuoraForPucit
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/Login/DeniedLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cRGVuaWVkTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/Login/DeniedSignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cRGVuaWVkU2lnblVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/Login/SignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cU2lnbkluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/Login/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cU2lnblVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/Question/AskQuestion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25cQXNrUXVlc3Rpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/Question/MainPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25cTWFpblBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/Question/_Partial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25cX1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/User/AboutUs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBYm91dFVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/User/AskQuestion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBc2tRdWVzdGlvbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/User/ContactUs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDb250YWN0VXMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/User/DeniedLogin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZW5pZWRMb2dpbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/User/DeniedSignUp.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZW5pZWRTaWduVXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/User/EditProfile.cshtml]
@@ -43,24 +59,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHaXZlQW5zd2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/User/MainPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxNYWluUGFnZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/User/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/User/SignIn.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaWduSW4uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/User/SignUp.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaWduVXAuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/User/_Partial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxfUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Noob/source/repos/QuoraForPucit/QuoraForPucit/Views/User/_PartialAns.cshtml]
