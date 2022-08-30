@@ -35,6 +35,20 @@ namespace QuoraForPucit.Models.Repositories
             User u = context.Users.Find(id);
             return u;
         }
+        public bool CheckCredsOfSpecificId(int id,string username,string pwd)
+        {
+            var context = new QuoraForPucit_DBContext();
+            var User = context.Users.Where(a => a.Username == username && a.Password == pwd && a.Id == id).Single();
+            if(User!=null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
         public User UpdateProfile(UserViewModel newuser, int id)
         {
             var context = new QuoraForPucit_DBContext();

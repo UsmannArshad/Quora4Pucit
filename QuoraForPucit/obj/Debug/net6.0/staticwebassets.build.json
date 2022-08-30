@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FoeGyH04epAaZ/EXzSuQn+J08WE28wCKf78flxjHlZA=",
+  "Hash": "Iz0HsZtzuG6GSEKh70fBJGFKotRJReJiL0Qc50xLjpo=",
   "Source": "QuoraForPucit",
   "BasePath": "_content/QuoraForPucit",
   "Mode": "Default",
@@ -59039,6 +59039,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Uploads\\6003.png"
+    },
+    {
+      "Identity": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\wwwroot\\images\\Uploads\\6004.png",
+      "SourceId": "QuoraForPucit",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\wwwroot\\",
+      "BasePath": "_content/QuoraForPucit",
+      "RelativePath": "images/Uploads/6004.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Uploads\\6004.png"
     },
     {
       "Identity": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\wwwroot\\images\\usman@gmail.com.jpeg",

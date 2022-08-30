@@ -9,7 +9,7 @@
             <p class="question">
               @question.Title
             </p>
-            <form method="post" asp-action="VoteQuestion" style="display:inline">
+            <form method="post" asp-controller="Question" asp-action="VoteQuestion" style="display:inline">
               <input name="questionid" value="@question.Id" style="display:none"/>
               <input name="votevalue" value="1" style="display:none"/>
               @if(questionstatus==1)
@@ -28,7 +28,7 @@
                 </button>
             }
             </form>
-            <form method="post" asp-action="VoteQuestion" style="display:inline">
+            <form method="post" asp-controller="Question" asp-action="VoteQuestion" style="display:inline">
               <input name="questionid" value="@question.Id" style="display:none"/>
               <input name="votevalue" value="2" style="display:none"/>
              @if(questionstatus==1)
@@ -47,7 +47,7 @@
                 </button>
             }
             </form>
-            <form asp-action="GiveAnswer" style="display: inline" method="post">
+            <form asp-controller="Answer" asp-action="GiveAnswer" style="display: inline" method="post">
             <input type="text" name="Id" value="@question.Id" style="display:none"/>
             <button class="btn btn-success answer-btn ml-2 mb-2">Answer</button>
             </form>

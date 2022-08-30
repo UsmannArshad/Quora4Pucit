@@ -19,6 +19,7 @@ namespace QuoraForPucit.Controllers
         [HttpGet]
         public ViewResult SignIn()
         {
+
             return View();
         }
         [HttpPost]

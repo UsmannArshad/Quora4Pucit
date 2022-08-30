@@ -9,6 +9,7 @@ namespace QuoraForPucit.Models.Interfaces
         public User GetUserByUsername(string username);
         public User GetUserById(int id);
         public User UpdateProfile(UserViewModel newuser, int id);
+        public bool CheckCredsOfSpecificId(int id, string username, string pwd);
 
     }
 }

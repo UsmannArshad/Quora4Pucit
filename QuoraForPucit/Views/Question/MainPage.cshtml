@@ -22,10 +22,10 @@
                 <input name="QuestionId" value="@questionlist[i].Id" style="display:none"/>
                 <input name="UserId" value="@UserId" style="display:none"/>
             </form>
-        <partial name="~/Views/User/_Partial.cshtml"  view-data='@new ViewDataDictionary(ViewData) {{"question",questionlist[i]},{"index",i},{"questionstatus",QuestionStatus[i]}}'/>
+        <partial name="~/Views/Question/_Partial.cshtml"  view-data='@new ViewDataDictionary(ViewData) {{"question",questionlist[i]},{"index",i},{"questionstatus",QuestionStatus[i]}}'/>
         }
     </div>
-    <a asp-controller="User" asp-action="LoadMore">Load More</a>
+    <a asp-controller="Question" asp-action="LoadMore">Load More</a>
 </div>
 <script>
 var collection = document.getElementsByClassName("like-btn");

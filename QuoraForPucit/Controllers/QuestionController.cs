@@ -33,7 +33,7 @@ namespace QuoraForPucit.Controllers
             ViewData["QuestionComments"] = qc1;
             ViewData["CurrentUserId"] = Data.UserId;
             ViewData["Name"] = Data.Name;
-            return View("../Home/GiveAnswer");
+            return View("../Answer/GiveAnswer");
         }
         [HttpPost]
         public ViewResult VoteQuestion(int questionid, int votevalue)
@@ -71,7 +71,7 @@ namespace QuoraForPucit.Controllers
             ViewData["Name"] = Data.Name;
             return View();
         }
-/*        [Route("/Question/MainPage", Name = "usermainpage")]*/
+        [Route("/Question/MainPage", Name = "usermainpage")]
         public ViewResult MainPage()
         {
             List<Question> listofqs = _questionRepository.GetAllQuestions(false);

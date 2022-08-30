@@ -1,0 +1,113 @@
+﻿@using QuoraForPucit.Models.ViewModel;
+@model CombinedModel;
+@section links{
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <link rel="stylesheet" href="@Url.Content("~/css/GiveAnswer.css?version=4")"/>
+}
+    @{
+    ViewData["Title"] = "Give Answer";
+    var question = (Question)ViewData["Question"];
+    var Answers = (List<Answer>)ViewData["Answers"];
+    var questioncomments = (List<QComment>)ViewData["QuestionComments"];
+    var UserId=ViewData["CurrentUserId"];
+    var Name=ViewData["Name"];
+}
+<div class="container">
+      <div class="question-container">
+        <h1>Question</h1>
+        <div class="title">
+          <h2>@question.Title</h2>
+        </div>
+        <div class="qsinfo">
+          <div class="qs-time"><h5>@question.Time</h5></div>
+          <div class="qs-publisher">
+              <img src="~/images/login.png" height="35px" width="35px" alt="user profile pic">
+              <p>@question.QuestionaireName</p>
+            </div>
+          <div class="qs-subject"><h5>Related to:@question.Subject</h5></div>
+        </div>
+        <div class="desc" id="desc">
+            @question.Description
+        </div>
+        <hr>
+        <div class="comments">
+          <h2>Comments:</h2>
+          @for(int i=0;i<questioncomments.Count;i++)
+        {
+            <partial name="~/Views/Question/_PartialComment.cshtml" view-data='@new ViewDataDictionary(ViewData) {{"comment",questioncomments[i]}}'/>
+        }
+          <div class="addComment">
+            <p> <a href="#comment" id="WriteComment">Add Comment</a></p>
+            <div id="commentform">
+              <form asp-controller="Question" asp-action="AddCommentToQuestion" method="post">
+                <textarea asp-for="qcomment.Comment" id=""></textarea>
+                <input asp-for="qcomment.QuestionId" value="@question.Id" style="display:none"/>
+                <input asp-for="qcomment.QCommenterId" value="@UserId" style="display:none"/>
+                <input asp-for="qcomment.QcommenterName" value="@Name" style="display:none"/>
+                <button type="submit" class="btn btn-success mb-4">Post Comment</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="answer-container">
+        <h1>Your Answer:</h1>
+        <form asp-controller="Answer" asp-action="WriteAnswer" method="post">
+        <input type="text" asp-for="answer.QuestionId" value="@question.Id" style="display:none"/>
+        <input type="text" asp-for="answer.AnswererId" value="@UserId" style="display:none"/>
+        <input type="text" asp-for="answer.AnswererName" value="@Name" style="display:none"/>
+        <textarea asp-for="answer.AnswerDescription" id="summernote"></textarea>
+        <div class="resultcontainer" style="text-align:left; width:65%;"></div>
+        <input type="submit" class="btn btn-success mt-3" value="Post Answer"/>
+        </form>
+      </div>
+       <div class="other-answer-container">
+        <h1>Answers</h1>
+        @for(int i=0;i<Answers.Count;i++)
+        {
+            <partial name="~/Views/Answer/_PartialAns.cshtml" view-data='@new ViewDataDictionary(ViewData) {{"answer",Answers[i]}}'/>
+        }
+    </div>
+    </div>
+    <script>
+      $('#summernote').summernote({
+placeholder: 'Answer goes here',
+height:'30vh',
+toolbar: [
+  ['style', ['style']],
+  ['font', ['bold', 'underline', 'clear']],
+  ['color', ['color']],
+  ['para', ['ul', 'ol', 'paragraph']],
+  ['table', ['table']],
+  ['insert', ['link', 'picture']],
+  ['view', ['codeview', 'help']]
+],
+ callbacks: {
+            onChange: function (contents, $editable) {
+                  $('.resultcontainer').html(contents)
+            }
+ }
+});
+function printdesc() {
+    var desc = document.getElementById("desc");
+    var html = desc.innerText;
+    desc.innerHTML = html;
+}
+printdesc();
+function printanswer() {
+    var desc = document.getElementsByClassName("ans-body")
+    console.log(desc.length)
+    for (let i = 0; i < desc.length;i++)
+    {
+            var html = desc[i].innerText;
+            desc[i].innerHTML = html;
+    }
+}
+printanswer();
+ $("#WriteComment").click(function(){
+        $("#commentform").css("display","block")
+        $("#WriteComment").css("display","none")
+      })
+</script>
