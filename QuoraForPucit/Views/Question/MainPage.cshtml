@@ -70,7 +70,6 @@ $(document).ready(function(){
             var data1 = new FormData();
             data1.append("searchvalue", $("#search").val());
             data1.append("Category", $("#category").val());
-            alert(data1["Category"]);
             $.ajax({
                 method:"post",
                 url:"/Question/SearchQuestion",
