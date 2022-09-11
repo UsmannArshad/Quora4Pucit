@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Iz0HsZtzuG6GSEKh70fBJGFKotRJReJiL0Qc50xLjpo=",
+  "Hash": "T9BO18IERkJ2VvcM4T5TR2TVVFwQI7wq+T1xaoRzOh8=",
   "Source": "QuoraForPucit",
   "BasePath": "_content/QuoraForPucit",
   "Mode": "Default",
@@ -950,6 +950,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Style.css"
+    },
+    {
+      "Identity": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\wwwroot\\css\\StyleSheet.css",
+      "SourceId": "QuoraForPucit",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\wwwroot\\",
+      "BasePath": "_content/QuoraForPucit",
+      "RelativePath": "css/StyleSheet.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\StyleSheet.css"
     },
     {
       "Identity": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\wwwroot\\favicon.ico",
@@ -59022,6 +59039,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Uploads\\3002.png"
+    },
+    {
+      "Identity": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\wwwroot\\images\\Uploads\\6002.png",
+      "SourceId": "QuoraForPucit",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\wwwroot\\",
+      "BasePath": "_content/QuoraForPucit",
+      "RelativePath": "images/Uploads/6002.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Uploads\\6002.png"
     },
     {
       "Identity": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\wwwroot\\images\\Uploads\\6003.png",

@@ -62,4 +62,55 @@ for (let i = 0; i < collection1.length; i++) {
     }  
   }
 }
+$(document).ready(function(){
+    document.addEventListener("click", function(e) {
+        e = e.target;
+        if(e.classList.contains("searchmovie"))
+        {
+            var data1 = new FormData();
+            data1.append("method", $("#searchoption").val());
+            data1.append("name", $("#searchdata").val());
+            alert(data1["name"]);
+            $.ajax({
+                method:"post",
+                url:"/Movie/SearchMovie",
+                data:data1,
+                contentType: false,
+                processData:false,
+                success: function(data) {
+                    data = JSON.parse(data);
+                    console.log(data);
+                    var row = document.getElementById("row1");
+                    for (let i = 0; i < data.length; i++) {
+                    var movieNode = document.getElementsByClassName("movieNode")[0].cloneNode(true);
+                    if(i==0)
+                    {
+                        row.innerHTML = "";
+                    }
+                    movieNode.children[0].children[0].children[0].children[0].children[1].innerHTML = data[i].Name;
+                    movieNode.children[0].children[0].children[1].children[0].src = data[i].Picture;
+                    movieNode.children[0].children[0].children[2].children[0].children[0].innerHTML = data[i].Description;
+                    movieNode.children[0].children[0].children[2].children[0].children[1].children[1].innerHTML = "Alex Cinema";
+                    movieNode.children[0].children[0].children[2].children[0].children[2].children[1].innerHTML = data[i].Category;
+                    var startdate = new Date(data[i].StartDate)
+                    var enddate = new Date(data[i].EndTime)
+                    var startdatestring=new Date(data[i].StartDate).toLocaleDateString();
+                    var enddatestring=new Date(data[i].EndTime).toLocaleDateString();
+                    movieNode.children[0].children[0].children[2].children[0].children[3].children[1].innerHTML = startdatestring;
+                    movieNode.children[0].children[0].children[2].children[0].children[4].children[1].innerHTML = enddatestring;
+                    $(movieNode.children[0].children[0].children[3].children[0].children[0].children[0]).attr("href", "/Movie/Details/"+data[i].Id);
+                    $(movieNode.children[0].children[0].children[3].children[0].children[0].children[1]).attr("href", "/Orders/AddToShoppingCart/"+data[i].Id);
+
+                        console.log(movieNode.children[0].children[0].children[3].children[0].children[0]);
+                    row.appendChild(movieNode);
+                    }
+                },
+                error: function() {
+                    console.log("error");
+                }
+            })
+            console.log("Clicked");
+        }
+    })
+})
 </script>

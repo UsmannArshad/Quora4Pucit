@@ -4,6 +4,7 @@ using QuoraForPucit.Models;
 using QuoraForPucit.Models.ViewModel;
 using QuoraForPucit.Models.Interfaces;
 using QuoraForPucit.Models.Data;
+using AutoMapper;
 
 namespace QuoraForPucit.Controllers
 {
@@ -11,10 +12,12 @@ namespace QuoraForPucit.Controllers
     {
         private IWebHostEnvironment _webHostEnvironment;
         private IUserRepository _userRepository;
-        public ProfileController(IWebHostEnvironment enviroment, IUserRepository ur)
+        private IMapper _mapper;
+        public ProfileController(IWebHostEnvironment enviroment, IUserRepository ur,IMapper mapper)
         {
             _webHostEnvironment = enviroment;
             _userRepository = ur;
+            _mapper = mapper;
         }
         [HttpGet]
         [Route("/Profile/EditProfile", Name = "editprofile")]
@@ -62,6 +65,23 @@ namespace QuoraForPucit.Controllers
             {
                 return Json("fail");
             }
+        }
+        public IActionResult GetAllUsers()
+        {
+            List<User> users=_userRepository.GetAllUsers();
+            List<UserShowViewModel> usersmappedlist=new List<UserShowViewModel>();
+            foreach(User user in users)
+            {
+                UserShowViewModel usersmapped = _mapper.Map<UserShowViewModel>(user);
+                usersmappedlist.Add(usersmapped);
+            }
+
+            return View("ManageUsers",usersmappedlist);
+        }
+        public IActionResult DeleteUser(int id)
+        {
+            _userRepository.DeleteUser(id);
+            return RedirectToAction("GetAllUsers", "Profile");
         }
     }
 }

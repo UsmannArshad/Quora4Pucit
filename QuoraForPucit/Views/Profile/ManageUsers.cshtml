@@ -1,0 +1,55 @@
+﻿@namespace QuoraForPucit.Models.ViewModel
+@model List<UserShowViewModel>
+@{
+    ViewData["Title"] = "Manage Users";
+}
+@section links{
+    <link rel="stylesheet" href="@Url.Content("~/css/StyleSheet.css?version=1")">
+}
+<div class="row mt-5 mb-5 main-container" style="background-color:white; width:60vw; ">
+    <div class="container-header">
+            <h1>Manage Users</h1>
+        </div>
+    <div class="col-md-12">
+
+        <table class="table mt-3 mb-3" style="border:1px solid black;">
+            <thead>
+                <tr class="text-center bg-transparent">
+                    <th>Profile Picture</th>
+                    <th>Id</th>
+                    <th>UserName</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Actions</th>
+                    </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr class="bg-white">
+                    <td class="align-middle text-center">
+                        <img class="rounded-circle" src="../@item.ProfilePicture" alt="@item.Name" style="max-width: 150px" />
+                    </td>
+                    <td class="align-middle text-center">
+                        @item.Id
+                    </td>
+                    <td class="align-middle text-center">
+                        @item.Username
+                    </td>
+                    <td class="align-middle text-center">
+                        @item.Name
+                    </td>
+                    <td class="align-middle text-center">
+                        @item.Age
+                    </td>
+                        <td class="align-middle text-center">
+                            <a class="btn btn-danger" asp-action="DeleteUser" asp-route-id="@item.Id"><i class="fa fa-trash"></i> Delete </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>

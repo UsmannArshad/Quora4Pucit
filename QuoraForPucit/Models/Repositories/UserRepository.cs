@@ -93,5 +93,26 @@ namespace QuoraForPucit.Models.Repositories
             context.SaveChanges();
             return olduser;
         }
+        public List<User> GetAllUsers()
+        {
+            var context = new QuoraForPucit_DBContext();
+            List<User> users = context.Users.ToList();
+            return users;
+        }
+        public void DeleteUser(int userId)
+        {
+            var context = new QuoraForPucit_DBContext();
+            IList<Answer> answers = context.Answers.Where(x => x.AnswererId==userId).ToList();
+            context.Answers.RemoveRange(answers);
+            IList<QComment> comments = context.QComments.Where(x => x.QCommenterId == userId).ToList();
+            context.QComments.RemoveRange(comments);
+            IList<QuestionsUpvoter> upvoters = context.QuestionsUpvoters.Where(x => x.UserId == userId).ToList();
+            context.QuestionsUpvoters.RemoveRange(upvoters);
+            IList<Question> questions = context.Questions.Where(x => x.QuestionaireId == userId).ToList();
+            context.Questions.RemoveRange(questions);
+            User u = context.Users.Find(userId);
+            context.Users.Remove(u);
+            context.SaveChanges();
+        }
     }
 }

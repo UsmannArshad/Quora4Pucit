@@ -1,0 +1,23 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url(../images/redbg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+.container-header {
+    font-family: 'Dancing Script', cursive;
+    font-weight: bolder;
+    color: darkred;
+    text-decoration: underline;
+    text-align: center;
+}
+.main-container{
+    margin:auto;
+}
+.table{
+    margin:auto;
+}

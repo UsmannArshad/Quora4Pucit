@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "/y7B7ceSh0CSNH/mi3vlyPpICkanW4ZtQXqPLbIT4aM+Z4J+nCEVGKyWvcbIqn3J62JVcIDQ6B5MmpTfCvA+Tw==",
+  "dgSpecHash": "M6patFPlRDp+ZWPtmxQwaNNpp0UHMObbYq7fvTVbryz/KBCJ6tuGUpLbhsW61gDcGSOy6PCuyDgQT3wgqsDKng==",
   "success": true,
   "projectFilePath": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\QuoraForPucit.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Noob\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\Noob\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Noob\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Noob\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Noob\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",

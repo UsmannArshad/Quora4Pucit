@@ -60,14 +60,29 @@
                     </div>
                 </li>
                 <li class="nav-item mr-5 mt-auto">
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="form-inline my-2 my-lg-0" asp-controller="Question" asp-action="SearchQuestion">
+                        <select required name="Category" class="form-control mr-2" style="background:purple;color:white">
+                        <option disabled selected>Choose Category</option>
+                        <option value="All">All</option>
+                        <option value="Exam">Exam</option>
+                        <option value="Admission">Admission</option>
+                        <option value="Job">Job</option>
+                        <option value="Study">Study</option>
+                        <option value="Information">Information</option>
+                        <option value="Events">Events</option>  
+                        </select>
+                        <input name="searchvalue" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-success my-sm-0" type="submit">Search</button>
                     </form>
                 </li>
-                <li class="nav-item mr-5 mt-auto">
+                <li class="nav-item mr-3 mt-auto">
                     <button type="button" class="btn btn-danger my-sm-0"style="background-color:#b92b27;">
                         <a  asp-controller="Question" asp-action="AskQuestion" style="text-decoration:none;color:white">Ask Question</a>
+                    </button>
+                </li>
+                <li class="nav-item mr-5 mt-auto">
+                    <button type="button" class="btn btn-danger my-sm-0"style="background-color:#3857CB;">
+                        <a  asp-controller="Profile" asp-action="GetAllUsers" style="text-decoration:none;color:white">Manage Users</a>
                     </button>
                 </li>
             </ul>

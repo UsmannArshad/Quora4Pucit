@@ -10,6 +10,7 @@ builder.Services.AddSingleton<IQuestionUpvoterRepository, QuestionUpvoterReposit
 builder.Services.AddSingleton<IQuestionRepository, QuestionRepository>();
 builder.Services.AddSingleton<IQuestionCommentsRepository, Q_Cmnts_Repo>();
 builder.Services.AddSingleton<IAnswerRepository, AnswerRepostory>();
+builder.Services.AddAutoMapper(typeof(Program));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

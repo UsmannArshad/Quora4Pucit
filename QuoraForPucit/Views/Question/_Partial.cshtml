@@ -51,6 +51,9 @@
             <input type="text" name="Id" value="@question.Id" style="display:none"/>
             <button class="btn btn-success answer-btn ml-2 mb-2">Answer</button>
             </form>
+            <form method="post" asp-controller="Question" asp-action="DeleteQuestion" asp-route-id="@question.Id" style="display:inline">
+            <button class="btn btn-danger ml-2 mb-2" type="submit">Delete</button>
+            </form>
             <p class="answers">3 <i class="fa fa-comments"></i></p>
             <p class="votes">@question.Upvote <i class="fa fa-sort"></i></p>
           </div>
