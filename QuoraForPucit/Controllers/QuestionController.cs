@@ -39,6 +39,7 @@ namespace QuoraForPucit.Controllers
             ViewData["Answers"] = answerList;
             ViewData["QuestionComments"] = qc1;
             ViewData["CurrentUserId"] = Data.UserId;
+            ViewData["Username"] = Data.UserName;
             ViewData["Name"] = Data.Name;
             return View("../Answer/GiveAnswer");
         }
@@ -67,6 +68,7 @@ namespace QuoraForPucit.Controllers
             ViewData["ListofQuestion"] = listofqs;
             ViewData["CurrentUserId"] = Data.UserId;
             ViewData["Name"] = Data.Name;
+            ViewData["Username"] = Data.UserName;
             return View("MainPage");
         }
         public IActionResult AskQuestion()
@@ -101,6 +103,7 @@ namespace QuoraForPucit.Controllers
             ViewData["ListOfQuestionStatus"] = listofupvotestatus;
             ViewData["ListofQuestion"] = listofqs;
             ViewData["CurrentUserId"] = Data.UserId;
+            ViewData["Username"] = Data.UserName;
             ViewData["Name"] = Data.Name;
             return View();
         }
@@ -116,6 +119,7 @@ namespace QuoraForPucit.Controllers
             ViewData["ListOfQuestionStatus"] = listofupvotestatus;
             ViewData["ListofQuestion"] = listofqs;
             ViewData["CurrentUserId"] = Data.UserId;
+            ViewData["Username"] = Data.UserName;
             ViewData["Name"] = Data.Name;
             return View("MainPage");
         }

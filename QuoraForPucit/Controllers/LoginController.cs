@@ -46,6 +46,7 @@ namespace QuoraForPucit.Controllers
                 ViewData["ListOfQuestionStatus"] = listofupvotestatus;
                 ViewData["CurrentUserId"] = Data.UserId;
                 ViewData["Name"] = Data.Name;
+                ViewData["Username"] = Data.UserName;
                 return View("../Question/MainPage");
             }
             else
@@ -85,6 +86,7 @@ namespace QuoraForPucit.Controllers
                     ViewData["ListOfQuestionStatus"] = listofupvotestatus;
                     ViewData["CurrentUserId"] = Data.UserId;
                     ViewData["Name"] = Data.Name;
+                    ViewData["Username"] = Data.UserName;
                     ViewData["ListofQuestion"] = listofqs;
                     CookieOptions options = new CookieOptions();
                     options.Expires = DateTime.Now.AddDays(365);

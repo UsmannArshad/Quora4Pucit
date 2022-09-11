@@ -2,9 +2,9 @@
     ViewData["Title"] = "Main Page";
     var questionlist = (List<Question>)ViewData["ListofQuestion"];
     List<int> QuestionStatus = (List<int>)ViewData["ListOfQuestionStatus"];
-
     var UserId = ViewData["CurrentUserId"];
     var Name = ViewData["Name"];
+    var username = ViewData["Username"];
 }
 @section links{
     <link rel="stylesheet" href="@Url.Content("~/css/MainPage.css")">
@@ -101,7 +101,10 @@ $(document).ready(function(){
                     movieNode.children[1].children[0].innerHTML = date1.toLocaleString();
                     movieNode.children[1].children[1].children[1].innerHTML = data[i].QuestionaireName;
                     console.log(movieNode.children[1].children[1].children[1]);
-                    
+                    $(movieNode.children[0].children[1].children[2]).attr("disabled", "disabled");
+                    $(movieNode.children[0].children[2].children[2]).attr("disabled", "disabled");
+                    $(movieNode.children[0].children[1].children[2]).css("background-color","white");
+                    $(movieNode.children[0].children[1].children[2]).css("color", "darkblue");
                     //movieNode.children[0].children[0].children[2].children[0].children[0].innerHTML = data[i].Description;
                     //movieNode.children[0].children[0].children[2].children[0].children[1].children[1].innerHTML = "Alex Cinema";
                     //movieNode.children[0].children[0].children[2].children[0].children[2].children[1].innerHTML = data[i].Category;
