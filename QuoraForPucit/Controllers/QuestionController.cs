@@ -3,6 +3,8 @@ using QuoraForPucit.Models.Interfaces;
 using QuoraForPucit.Models;
 using QuoraForPucit.Models.ViewModel;
 using QuoraForPucit.Models.Data;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
 
 namespace QuoraForPucit.Controllers
 {
@@ -111,17 +113,22 @@ namespace QuoraForPucit.Controllers
         public IActionResult SearchQuestion(string Category,string searchvalue)
         {
             List<Question> listofqs = _questionRepository.SearchQuestion(Category, searchvalue);
-            List<int> listofupvotestatus = new List<int>();
-            foreach (Question q in listofqs)
+            String jsonResult = JsonConvert.SerializeObject(listofqs, Formatting.Indented, new JsonSerializerSettings()
             {
-                int status = _questionUpvoterRepository.GetUpvoteStatus(q.Id, Data.UserId);
-                listofupvotestatus.Add(status);
-            }
-            ViewData["ListOfQuestionStatus"] = listofupvotestatus;
-            ViewData["ListofQuestion"] = listofqs;
-            ViewData["CurrentUserId"] = Data.UserId;
-            ViewData["Name"] = Data.Name;
-            return View("MainPage");
+                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore,
+            });
+            return Json(jsonResult);
+            /*            List<int> listofupvotestatus = new List<int>();
+                        foreach (Question q in listofqs)
+                        {
+                            int status = _questionUpvoterRepository.GetUpvoteStatus(q.Id, Data.UserId);
+                            listofupvotestatus.Add(status);
+                        }
+                        ViewData["ListOfQuestionStatus"] = listofupvotestatus;
+                        ViewData["ListofQuestion"] = listofqs;
+                        ViewData["CurrentUserId"] = Data.UserId;
+                        ViewData["Name"] = Data.Name;
+                        return View("MainPage");*/
         }
     }
 }

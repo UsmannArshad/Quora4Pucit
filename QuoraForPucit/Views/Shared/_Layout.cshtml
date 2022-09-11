@@ -60,8 +60,8 @@
                     </div>
                 </li>
                 <li class="nav-item mr-5 mt-auto">
-                    <form class="form-inline my-2 my-lg-0" asp-controller="Question" asp-action="SearchQuestion">
-                        <select required name="Category" class="form-control mr-2" style="background:purple;color:white">
+                    <form class="form-inline my-2 my-lg-0">
+                        <select required name="Category" class="form-control mr-2" style="background:purple;color:white" id="category">
                         <option disabled selected>Choose Category</option>
                         <option value="All">All</option>
                         <option value="Exam">Exam</option>
@@ -71,8 +71,8 @@
                         <option value="Information">Information</option>
                         <option value="Events">Events</option>  
                         </select>
-                        <input name="searchvalue" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-success my-sm-0" type="submit">Search</button>
+                        <input id="search" name="searchvalue" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-success my-sm-0 search-btn" type="button">Search</button>
                     </form>
                 </li>
                 <li class="nav-item mr-3 mt-auto">
