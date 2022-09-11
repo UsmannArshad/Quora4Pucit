@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using QuoraForPucit.Models;
+using QuoraForPucit.Models.Data;
 
 namespace QuoraForPucit
 {
@@ -190,5 +191,31 @@ namespace QuoraForPucit
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+        public override int SaveChanges()
+        {
+            var tracker = ChangeTracker;
+            foreach (var entry in tracker.Entries())
+            {
+                if (entry.Entity is Entity)
+                {
+                    var referenceEntity = entry.Entity as Entity;
+                    switch (entry.State)
+                    {
+                        case EntityState.Added:
+                            referenceEntity.CreatedDate = DateTime.Now;
+                            referenceEntity.CreatedByUser = Data.UserName;//hard coded user id
+                            break;
+                        case EntityState.Deleted:
+                        case EntityState.Modified:
+                            referenceEntity.ModifiedDate = DateTime.Now;
+                            referenceEntity.ModifiedByUser = Data.UserName;//hard coded user id
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            return base.SaveChanges();
+        }
     }
 }

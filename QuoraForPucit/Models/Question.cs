@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace QuoraForPucit.Models
 {
-    public partial class Question
+    public partial class Question:Entity
     {
         public Question()
         {

@@ -32,6 +32,9 @@ namespace QuoraForPucit.Controllers
                 Data.UserId = u.Id;
                 Data.Name = u.Name;
                 Data.UserName = u.Username;
+                CookieOptions options = new CookieOptions();
+                options.Expires = DateTime.Now.AddDays(365);
+                HttpContext.Response.Cookies.Append("Username", u.Username, options);
                 List<Question> listofqs = _questionRepository.GetAllQuestions(false);
                 ViewData["ListofQuestion"] = listofqs;
                 List<int> listofupvotestatus = new List<int>();
@@ -83,6 +86,9 @@ namespace QuoraForPucit.Controllers
                     ViewData["CurrentUserId"] = Data.UserId;
                     ViewData["Name"] = Data.Name;
                     ViewData["ListofQuestion"] = listofqs;
+                    CookieOptions options = new CookieOptions();
+                    options.Expires = DateTime.Now.AddDays(365);
+                    HttpContext.Response.Cookies.Append("Username", u.Username, options);
                     return View("../Question/MainPage");
                 }
             }
@@ -90,6 +96,16 @@ namespace QuoraForPucit.Controllers
             {
                 return View();
             }
+        }
+        public IActionResult Logout()
+        {
+            var cookie = Request.Cookies["Username"];
+            if (cookie == null)
+            {
+                return RedirectToAction("SignIn", "Login");
+            }
+            Response.Cookies.Delete("Username");
+            return RedirectToAction("MainPage","Question");
         }
     }
 }

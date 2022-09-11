@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace QuoraForPucit.Models
 {
-    public partial class Answer
+    public partial class Answer:Entity
     {
         public Answer()
         {

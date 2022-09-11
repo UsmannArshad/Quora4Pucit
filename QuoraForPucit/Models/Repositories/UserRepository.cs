@@ -109,6 +109,15 @@ namespace QuoraForPucit.Models.Repositories
             IList<QuestionsUpvoter> upvoters = context.QuestionsUpvoters.Where(x => x.UserId == userId).ToList();
             context.QuestionsUpvoters.RemoveRange(upvoters);
             IList<Question> questions = context.Questions.Where(x => x.QuestionaireId == userId).ToList();
+            foreach(var question in questions)
+            {
+                IList<Answer> answers1 = context.Answers.Where(x => x.QuestionId == question.Id).ToList();
+                context.Answers.RemoveRange(answers1);
+                IList<QComment> comments1 = context.QComments.Where(x => x.QuestionId == question.Id).ToList();
+                context.QComments.RemoveRange(comments1);
+                IList<QuestionsUpvoter> upvoters1 = context.QuestionsUpvoters.Where(x => x.QuestionId == question.Id).ToList();
+                context.QuestionsUpvoters.RemoveRange(upvoters1);
+            }
             context.Questions.RemoveRange(questions);
             User u = context.Users.Find(userId);
             context.Users.Remove(u);

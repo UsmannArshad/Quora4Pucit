@@ -48,8 +48,13 @@ namespace QuoraForPucit.Controllers
             ViewData["User"] = updateduser;
             return View();
         }
-        public ViewResult Profile()
+        public IActionResult Profile()
         {
+            var cookie = Request.Cookies["Username"];
+            if (cookie == null)
+            {
+                return RedirectToAction("SignIn", "Login");
+            }
             User u = _userRepository.GetUserByUsername(Data.UserName);
             ViewData["User"] = u;
             return View();
@@ -68,6 +73,11 @@ namespace QuoraForPucit.Controllers
         }
         public IActionResult GetAllUsers()
         {
+            var cookie = Request.Cookies["Username"];
+            if (cookie == null)
+            {
+                return RedirectToAction("SignIn", "Login");
+            }
             List<User> users=_userRepository.GetAllUsers();
             List<UserShowViewModel> usersmappedlist=new List<UserShowViewModel>();
             foreach(User user in users)
@@ -80,6 +90,11 @@ namespace QuoraForPucit.Controllers
         }
         public IActionResult DeleteUser(int id)
         {
+            var cookie = Request.Cookies["Username"];
+            if (cookie == null)
+            {
+                return RedirectToAction("SignIn", "Login");
+            }
             _userRepository.DeleteUser(id);
             return RedirectToAction("GetAllUsers", "Profile");
         }

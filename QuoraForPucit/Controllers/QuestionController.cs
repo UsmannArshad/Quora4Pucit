@@ -23,8 +23,13 @@ namespace QuoraForPucit.Controllers
         }
 
         [HttpPost]
-        public ViewResult AddCommentToQuestion(CombinedModel model)
+        public IActionResult AddCommentToQuestion(CombinedModel model)
         {
+            var cookie = Request.Cookies["Username"];
+            if (cookie == null)
+            {
+                return RedirectToAction("SignIn", "Login");
+            }
             QComment qc = model.qcomment;
             _questionCommentsRepository.AddComment(qc);
             List<Answer> answerList = _answerRepository.GetAnswersbyQid(qc.QuestionId);
@@ -38,8 +43,13 @@ namespace QuoraForPucit.Controllers
             return View("../Answer/GiveAnswer");
         }
         [HttpPost]
-        public ViewResult VoteQuestion(int questionid, int votevalue)
+        public IActionResult VoteQuestion(int questionid, int votevalue)
         {
+            var cookie = Request.Cookies["Username"];
+            if (cookie == null)
+            {
+                return RedirectToAction("SignIn", "Login");
+            }
             _questionRepository.VoteQuestion(questionid, votevalue);
             QuestionsUpvoter qu = new QuestionsUpvoter();
             qu.UpvoteStatus = votevalue;
@@ -59,10 +69,15 @@ namespace QuoraForPucit.Controllers
             ViewData["Name"] = Data.Name;
             return View("MainPage");
         }
-        public ViewResult AskQuestion()
+        public IActionResult AskQuestion()
         {
             ViewData["CurrentUserId"] = Data.UserId;
             ViewData["Name"] = Data.Name;
+            var cookie = Request.Cookies["Username"];
+            if(cookie==null)
+            {
+                return RedirectToAction("SignIn", "Login");
+            }
             return View();
         }
         [HttpPost]

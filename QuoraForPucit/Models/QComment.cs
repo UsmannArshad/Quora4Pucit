@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace QuoraForPucit
 {
-    public partial class QComment
+    public partial class QComment:Entity
     {
         public int Id { get; set; }
         [Required, StringLength(240, ErrorMessage = "Comment cannot exceeds 240 characters")]

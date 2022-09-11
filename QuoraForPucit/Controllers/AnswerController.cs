@@ -33,8 +33,13 @@ namespace QuoraForPucit.Controllers
             return View();
         }
         [HttpPost]
-        public ViewResult WriteAnswer(CombinedModel model)
+        public IActionResult WriteAnswer(CombinedModel model)
         {
+            var cookie = Request.Cookies["Username"];
+            if (cookie == null)
+            {
+                return RedirectToAction("SignIn", "Login");
+            }
             Answer a = model.answer;
             _answerRepository.AddAnswer(a);
             List<Answer> answerList = _answerRepository.GetAnswersbyQid(a.QuestionId);

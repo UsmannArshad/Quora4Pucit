@@ -82,6 +82,10 @@ $(document).ready(function(){
                     console.log(data);
                     var row = document.getElementById("question");
                     console.log(row);
+                    if(data.length==0)
+                    {
+                        row.innerHTML = "";
+                    }
                     for (let i = 0; i < data.length; i++) {
                     var movieNode = document.getElementsByClassName("question-item")[0].cloneNode(true);
                     if(i==0)

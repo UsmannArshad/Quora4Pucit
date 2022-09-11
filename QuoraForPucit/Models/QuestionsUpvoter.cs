@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace QuoraForPucit.Models
 {
-    public partial class QuestionsUpvoter
+    public partial class QuestionsUpvoter:Entity
     {
         public int Id { get; set; }
         public int QuestionId { get; set; }
