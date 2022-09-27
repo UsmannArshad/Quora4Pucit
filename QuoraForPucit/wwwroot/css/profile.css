@@ -147,6 +147,19 @@ body {
     font-weight: bold;
     margin-bottom: 20px;
 }
+.noactivity {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    color: darkred;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin:auto;
+}
+.panel-content{
+    width:70vw;
+    margin:auto;
+}
 
 .panel-content-list li {
     margin: 10px 10px 40px -20px;
@@ -156,10 +169,15 @@ body {
         color: darkred
     }
 
-    .panel-content-list li img {
+/*    .panel-content-list li img {
         border-radius: 50%;
         max-width: 50px;
-    }
+    }*/
+#profileimg{
+    max-width:50px;
+    border-radius:50%;
+}
+
 
 .panel-content-list {
     list-style-type: none;

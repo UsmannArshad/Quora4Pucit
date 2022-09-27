@@ -56,7 +56,13 @@ namespace QuoraForPucit.Controllers
                 return RedirectToAction("SignIn", "Login");
             }
             User u = _userRepository.GetUserByUsername(Data.UserName);
+            var questioncount = _userRepository.GetQuestionCount(u.Id);
+            var answercount = _userRepository.GetAnswerCount(u.Id);
+            List<Question> recentquestions = _userRepository.GetSomeQuestionOfUser(u.Id);
             ViewData["User"] = u;
+            ViewData["Questions"] = recentquestions;
+            ViewBag.QuestionCount = questioncount;
+            ViewBag.AnswerCount = answercount;
             return View();
         }
         public IActionResult CheckPrevCreds(int id,string email,string pwd)

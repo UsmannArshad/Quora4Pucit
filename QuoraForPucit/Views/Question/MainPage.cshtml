@@ -7,7 +7,7 @@
     var username = ViewData["Username"];
 }
 @section links{
-    <link rel="stylesheet" href="@Url.Content("~/css/MainPage.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/MainPage.css?version=1")">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 }
 <div class="container" id="question">
@@ -22,7 +22,7 @@
                 <input name="QuestionId" value="@questionlist[i].Id" style="display:none"/>
                 <input name="UserId" value="@UserId" style="display:none"/>
             </form>*@
-        <partial name="~/Views/Question/_Partial.cshtml"  view-data='@new ViewDataDictionary(ViewData) {{"question",questionlist[i]},{"index",i},{"questionstatus",QuestionStatus[i]}}'/>
+        <partial name="~/Views/Question/_Partial.cshtml" view-data='@new ViewDataDictionary(ViewData) {{"question",questionlist[i]},{"index",i},{"questionstatus",QuestionStatus[i]}}'/>
         }
     </div>
     <a asp-controller="Question" asp-action="LoadMore">Load More</a>

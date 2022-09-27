@@ -123,5 +123,24 @@ namespace QuoraForPucit.Models.Repositories
             context.Users.Remove(u);
             context.SaveChanges();
         }
+        public int GetQuestionCount(int id)
+        {
+            var context = new QuoraForPucit_DBContext();
+            int count=context.Questions.Where(x=>x.QuestionaireId==id).Count();
+            return count;
+
+        }
+        public int GetAnswerCount(int id)
+        {
+            var context = new QuoraForPucit_DBContext();
+            int count = context.Answers.Where(x => x.AnswererId == id).Count();
+            return count;
+        }
+        public List<Question> GetSomeQuestionOfUser(int id)
+        {
+            var context = new QuoraForPucit_DBContext();
+            List<Question> listofquestions=context.Questions.Where(x=>x.QuestionaireId==id).Take(3).ToList();
+            return listofquestions;
+        }
     }
 }

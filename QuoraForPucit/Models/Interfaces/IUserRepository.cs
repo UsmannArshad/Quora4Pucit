@@ -10,6 +10,9 @@ namespace QuoraForPucit.Models.Interfaces
         public User GetUserById(int id);
         public User UpdateProfile(UserViewModel newuser, int id);
         public bool CheckCredsOfSpecificId(int id, string username, string pwd);
+        public int GetQuestionCount(int id);    
+        public int GetAnswerCount(int id);
+        public List<Question> GetSomeQuestionOfUser(int id);
         public List<User> GetAllUsers();
         public void DeleteUser(int id);
 

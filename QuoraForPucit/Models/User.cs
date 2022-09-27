@@ -21,7 +21,7 @@ namespace QuoraForPucit.Models
                        + "(?=.*[@#$%^&+=*])"
                        + "(?=\\S+$).{8,20}$", ErrorMessage ="Password must be like Aa1@ and length must be 8-20")]
         public string Password { get; set; } = null!;
-        [Required(ErrorMessage = "Enter Your Name"), StringLength(30, ErrorMessage = "Name cannot exceeds thirty characters")]
+        [Required(ErrorMessage = "Enter Your Name"), StringLength(30,ErrorMessage = "Name cannot exceeds thirty characters")]
         public string Name { get; set; } = null!;
         [Range(15, 100, ErrorMessage = "Age must be in between 15 and 100"), Required]
         public int Age { get; set; }

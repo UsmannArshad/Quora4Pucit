@@ -52,7 +52,7 @@ namespace QuoraForPucit
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.AComments)
                     .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.ClientSetNull)    //.cascade
                     .HasConstraintName("FK_A_Comments_Users");
             });
 
