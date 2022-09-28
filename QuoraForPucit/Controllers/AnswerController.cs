@@ -18,13 +18,25 @@ namespace QuoraForPucit.Controllers
             _questionCommentsRepository = questionCommentsRepository;
             _answerRepository = answerRepository;
         }
-
-        [HttpPost]
-        public ViewResult GiveAnswer(int Id)
+        [HttpGet]
+        public ViewResult GiveAnswer(int id,string wese)
         {
-            Question q = _questionRepository.GetQuestionById(Id);
-            List<Answer> a = _answerRepository.GetAnswersbyQid(Id);
-            List<QComment> qc = _questionCommentsRepository.GetCommentsbyQid(Id);
+            Question q = _questionRepository.GetQuestionById(id);
+            List<Answer> a = _answerRepository.GetAnswersbyQid(id);
+            List<QComment> qc = _questionCommentsRepository.GetCommentsbyQid(id);
+            ViewData["Question"] = q;
+            ViewData["Answers"] = a;
+            ViewData["QuestionComments"] = qc;
+            ViewData["CurrentUserId"] = Data.UserId;
+            ViewData["Name"] = Data.Name;
+            return View();
+        }
+        [HttpPost]
+        public ViewResult GiveAnswer(int id)
+        {
+            Question q = _questionRepository.GetQuestionById(id);
+            List<Answer> a = _answerRepository.GetAnswersbyQid(id);
+            List<QComment> qc = _questionCommentsRepository.GetCommentsbyQid(id);
             ViewData["Question"] = q;
             ViewData["Answers"] = a;
             ViewData["QuestionComments"] = qc;

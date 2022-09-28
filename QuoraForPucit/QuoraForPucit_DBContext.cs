@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using QuoraForPucit.Models;
@@ -7,7 +8,7 @@ using QuoraForPucit.Models.Data;
 
 namespace QuoraForPucit
 {
-    public partial class QuoraForPucit_DBContext : DbContext
+    public partial class QuoraForPucit_DBContext : IdentityDbContext<UserwithIdentity>
     {
         public QuoraForPucit_DBContext()
         {
@@ -188,6 +189,7 @@ namespace QuoraForPucit
             });
 
             OnModelCreatingPartial(modelBuilder);
+            base.OnModelCreating(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

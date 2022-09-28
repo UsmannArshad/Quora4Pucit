@@ -19,14 +19,14 @@
                     <h3 class="mt-3">A Place to share knowledge and better understand the World</h3>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="./Login/SignIn">
+                    <form method="post" action="SignIn">
                         <div class="mb-3">
                             <label asp-for="Username" class="form-label">Email address</label>
                             <input asp-for="Username" required class="form-control" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label asp-for="Password" class="form-label">Password</label>
-                            <input asp-for="Password" required class="form-control" id="exampleInputPassword1">
+                            <input type="password" asp-for="Password" required class="form-control" id="exampleInputPassword1">
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">

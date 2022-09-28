@@ -5,6 +5,7 @@ using QuoraForPucit.Models.ViewModel;
 using QuoraForPucit.Models.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace QuoraForPucit.Controllers
 {
@@ -44,13 +45,14 @@ namespace QuoraForPucit.Controllers
             return View("../Answer/GiveAnswer");
         }
         [HttpPost]
+        [Authorize]
         public IActionResult VoteQuestion(int questionid, int votevalue)
         {
-            var cookie = Request.Cookies["Username"];
+            /*var cookie = Request.Cookies["Username"];
             if (cookie == null)
             {
                 return RedirectToAction("SignIn", "Login");
-            }
+            }*/
             _questionRepository.VoteQuestion(questionid, votevalue);
             QuestionsUpvoter qu = new QuestionsUpvoter();
             qu.UpvoteStatus = votevalue;
@@ -90,7 +92,8 @@ namespace QuoraForPucit.Controllers
             ViewData["Name"] = Data.Name;
             return View();
         }
-        [Route("/Question/MainPage", Name = "usermainpage")]
+/*        [HttpGet]*/
+/*        [Route("/Question/MainPage", Name = "usermainpage")]*/
         public ViewResult MainPage()
         {
             List<Question> listofqs = _questionRepository.GetAllQuestions(false);
@@ -102,6 +105,15 @@ namespace QuoraForPucit.Controllers
             }
             ViewData["ListOfQuestionStatus"] = listofupvotestatus;
             ViewData["ListofQuestion"] = listofqs;
+            var username = Request.Cookies["Username"];
+            var name = Request.Cookies["Name"];
+            var UserId = Request.Cookies["Id"];
+            if (username != null)
+            {
+                Data.UserId = int.Parse(UserId.ToString());  
+                Data.UserName = username.ToString();
+                Data.Name = name.ToString();
+            }
             ViewData["CurrentUserId"] = Data.UserId;
             ViewData["Username"] = Data.UserName;
             ViewData["Name"] = Data.Name;

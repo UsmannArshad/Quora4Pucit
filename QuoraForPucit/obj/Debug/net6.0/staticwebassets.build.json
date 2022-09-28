@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DcPHVHqGi7LFdJrOLhJltkYcdYqFf3yUqNJRnc+zlb8=",
+  "Hash": "M1kWiaz4nN4Y4HmjGOQnxVlJu9qEb1YF16VMudcDLsg=",
   "Source": "QuoraForPucit",
   "BasePath": "_content/QuoraForPucit",
   "Mode": "Default",
@@ -59073,6 +59073,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Uploads\\1002.png"
+    },
+    {
+      "Identity": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\wwwroot\\images\\Uploads\\11004.png",
+      "SourceId": "QuoraForPucit",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\wwwroot\\",
+      "BasePath": "_content/QuoraForPucit",
+      "RelativePath": "images/Uploads/11004.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Uploads\\11004.png"
+    },
+    {
+      "Identity": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\wwwroot\\images\\Uploads\\12004.png",
+      "SourceId": "QuoraForPucit",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\wwwroot\\",
+      "BasePath": "_content/QuoraForPucit",
+      "RelativePath": "images/Uploads/12004.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Uploads\\12004.png"
     },
     {
       "Identity": "C:\\Users\\Noob\\source\\repos\\QuoraForPucit\\QuoraForPucit\\wwwroot\\images\\Uploads\\2.png",

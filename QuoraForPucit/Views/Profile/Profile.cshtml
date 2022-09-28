@@ -82,11 +82,11 @@
                           <img src="../@u.ProfilePicture" alt="currentimage" id="profileimg">
                         }
                              
-                        <a href="#">@qs[i].QuestionaireName</a> Posted the question:
-                        <a href="#">@qs[i].Title</a>
+                        <p style="display:inline;font-weight:bolder">@qs[i].QuestionaireName</p> Posted the question:
+                        <a asp-controller="Answer" asp-action="GiveAnswer" asp-route-id="@qs[i].Id" asp-route-wese="">@qs[i].Title</a>
                         </div>
                         <div class="activity__list__body entry-content" style="max-width:100%">
-                            <p style="width:100%" id="desc" class="descclass">
+                            <p style="width:100%" class="descclass">
                                 @*@qs[0].Description.Substring(0,100)*@
                                 @qs[i].Description
                             </p>
@@ -111,13 +111,13 @@
 function printabout() {
     var desc = document.getElementById("about");
     var html = desc.innerText;
-    desc.innerHTML = html;
+    desc.innerHTML = html; //p
 }
 function printdescclass() {
     var desc1=document.getElementsByClassName("descclass")
     for (let i = 0; i < desc1.length; i++) {
-        var html = desc[i].innerText;
-        desc[i].innerHTML = html;
+        var html = desc1[i].innerText;
+        desc1[i].innerHTML = html;
     }
 }
 printabout();   
